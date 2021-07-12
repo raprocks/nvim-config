@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 local function mapper(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
@@ -24,3 +25,9 @@ mapper("n", "<Leader>to", ":NvimTreeOpen<CR>",{})
 mapper("n", "<Leader>tc", ":NvimTreeClose<CR>",{})
 mapper("n", "<Leader>tf", ":NvimTreeFindFile<CR>",{})
 
+-- nvim-compe; direct
+mapper("i", "<C-Space>", "compe#complete()", { silent=true, noremap = true, expr = true})
+mapper("i", "<CR>", "compe#confirm('<CR>')", { silent=true, noremap = true, expr = true})
+mapper("i", "<C-e>", "compe#close('<C-e>')", { silent=true, noremap = true, expr = true})
+mapper("i", "<C-f>", "compe#scroll({ 'delta': +4})", { silent=true, noremap = true, expr = true})
+mapper("i", "<C-d>", "compe#scroll({ 'delta': -4})", { silent=true, noremap = true, expr = true})

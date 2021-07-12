@@ -30,3 +30,5 @@ vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.titlestring = "NeoVim"
 vim.opt.wrap = true
+vim.opt.completeopt = "noinsert,noselect,menuone"
+

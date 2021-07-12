@@ -1,4 +1,4 @@
-let base16colorspace=256
+
 filetype on
 filetype plugin indent on
 call plug#begin("~/.vim/plugged")
@@ -8,7 +8,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 " Plug 'kabouzeid/nvim-lspinstall'
-Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/completion-nvim'
 Plug 'SirVer/ultisnips'
 " Plug 'chriskempson/base16-vim'
 Plug 'honza/vim-snippets'
@@ -24,6 +24,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'hrsh7th/nvim-compe'
+Plug 'windwp/nvim-autopairs'
 call plug#end()
 set background=dark
 " colorscheme gruvbox8
@@ -39,7 +41,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
-imap <silent> <C-Space> <Plug>(completion_trigger)
 
 " Ultisnip
 let g:UltiSnipsExpandTrigger="<c-a>"
@@ -60,9 +61,6 @@ keymaps = {
     scope_incremental = "grc",
     node_decremental = "grm",
     },
-},
-indent = {
-enable = true
 }
 
 }
@@ -138,3 +136,5 @@ augroup END
 lua require'init'
 lua require'keybindings'
 lua require'vim_config'
+lua require'completion'
+lua require'autopairs'

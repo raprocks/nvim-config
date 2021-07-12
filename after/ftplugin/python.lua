@@ -1,8 +1,8 @@
 require'lspconfig'.pylsp.setup{
-    on_attach=require'completion'.on_attach,
     settings={
-        pyls = {
+        pylsp = {
             configurationSources = { "pycodestyle", "pyflakes" },
+            plugins = { pydocstyle = {enabled = true}},
             type = "string"
         }
     }
@@ -10,3 +10,6 @@ require'lspconfig'.pylsp.setup{
 
 require'lspconfig'["pylsp"].manager.try_add_wrapper()
 print("Initialized pylsp LSP")
+
+require'lspconfig'.pyright.setup{}
+require'lspconfig'["pyright"].manager.try_add_wrapper()
