@@ -1,4 +1,3 @@
-
 filetype on
 filetype plugin indent on
 call plug#begin("~/.vim/plugged")
@@ -46,26 +45,6 @@ set completeopt=menuone,noinsert,noselect
 let g:UltiSnipsExpandTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-ensure_installed = {"python","javascript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-highlight = {
-enable = true,              -- false will disable the whole extension
-},
-incremental_selection = {
-enable = true,
-keymaps = {
-    init_selection = "gnn",
-    node_incremental = "grn",
-    scope_incremental = "grc",
-    node_decremental = "grm",
-    },
-}
-
-}
-EOF
-
 set foldexpr=nvim_treesitter#foldexpr()
 
 let g:completion_chain_complete_list = [
@@ -83,9 +62,10 @@ let g:completion_enable_snippet = 'UltiSnips'
 imap  <c-j> <Plug>(completion_next_source)
 imap  <c-k> <Plug>(completion_prev_source)
 
-" augroup highlight
-" autocmd!
-" autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.hover()
+augroup highlight
+autocmd!
+autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.hover()
+augroup END
 "
 autocmd StdinReadPre * let s:std_in=1
 let g:clipboard = {
@@ -130,7 +110,7 @@ endfunction
 
 augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{timeout=150}
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{timeout=50}
 augroup END
 
 lua require'init'
@@ -138,3 +118,4 @@ lua require'keybindings'
 lua require'vim_config'
 lua require'completion'
 lua require'autopairs'
+lua require'treesitter'
