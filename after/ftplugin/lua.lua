@@ -21,7 +21,7 @@ require'lspconfig'.sumneko_lua.setup {
                 [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                 [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
                 },
-                maxPrelaod = 10000
+                maxPrelaod = 1000
             },
             telemetry = {
                 enable = false,
