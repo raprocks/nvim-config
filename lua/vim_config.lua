@@ -1,5 +1,7 @@
 vim.opt.cmdheight = 2
+vim.opt.background="dark"
 vim.opt.colorcolumn = "80"
+vim.o.filetype="on"
 vim.opt.concealcursor = "nc"
 vim.opt.confirm = true
 vim.opt.cursorline = true
@@ -31,4 +33,3 @@ vim.opt.title = true
 vim.opt.titlestring = "NeoVim"
 vim.opt.wrap = true
 vim.opt.completeopt = "noinsert,noselect,menuone"
-
