@@ -1,38 +1,13 @@
-call plug#begin("~/.vim/plugged")
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'itchyny/lightline.vim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'neovim/nvim-lspconfig'
-" Plug 'kabouzeid/nvim-lspinstall'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'SirVer/ultisnips'
-" Plug 'chriskempson/base16-vim'
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-" Plug 'lifepillar/vim-gruvbox8'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'sbdchd/neoformat'
-" Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
-Plug 'joshdick/onedark.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ayu-theme/ayu-vim' " or other package manager
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'hrsh7th/nvim-compe'
-Plug 'windwp/nvim-autopairs'
-call plug#end()
-" colorscheme gruvbox8
-" let g:gruvbox_filetype_hi_groups = 1
-" let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-
+lua require'plugins'
+lua require'init'
+lua require'keybindings'
+lua require'vim_config'
+lua require'completion'
+lua require'autopairs'
+lua require'treesitter'
+lua require'global_variables'
 " Ultisnip
+let ayucolor="mirage"
 set foldexpr=nvim_treesitter#foldexpr()
 augroup highlight
     autocmd!
@@ -88,11 +63,3 @@ augroup END
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ wincmd p | enew | execute 'cd '.argv()[0] | execute 'NvimTreeToggle' |  endif
-
-lua require'init'
-lua require'keybindings'
-lua require'vim_config'
-lua require'completion'
-lua require'autopairs'
-lua require'treesitter'
-lua require'global_variables'
