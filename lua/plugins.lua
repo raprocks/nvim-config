@@ -60,6 +60,11 @@ return require'packer'.startup({function(use)
         run = ":GoUpdateBinaries",
         ft = {"go", "gomod"}
     }
+    use {
+        'evanleck/vim-svelte',
+        branch='main',
+        ft = {"svelte", "svx"}
+    }
 end,
 config = {ensure_dependencies   = true}
 })
