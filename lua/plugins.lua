@@ -63,7 +63,7 @@ return require'packer'.startup({function(use)
     use {
         'evanleck/vim-svelte',
         branch='main',
-        ft = {"svelte", "svx"}
+        requires = {'pangloss/vim-javascript'}
     }
 end,
 config = {ensure_dependencies   = true}
